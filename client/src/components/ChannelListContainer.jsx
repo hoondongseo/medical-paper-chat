@@ -29,7 +29,7 @@ const CompanyHeader = () => (
     </div>
 )
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
     const logout = () => {
         cookies.remove("token");
         cookies.remove('userId');
@@ -55,16 +55,21 @@ const ChannelListContainer = () => {
                         <TeamChannelList
                             {...listProps}
                             type="team"
+                            isCreating={isCreating}
+                            setIsCreating={setIsCreating}
+                            setCreateType={setCreateType}
+                            setIsEditing={setIsEditing}
                         />
                     )}
                     Preview={(PreviewProps) => (
                         <TeamChannelPreview
                             {...PreviewProps}
+                            setIsCreating={setIsCreating}
+                            setIsEditing={setIsEditing}
                             type="team"
                         />
                     )}
                 />
-
                 <ChannelList
                     filters={{}}
                     channelRenderFilterFn={() => { }}
@@ -72,12 +77,18 @@ const ChannelListContainer = () => {
                         <TeamChannelList
                             {...listProps}
                             type="messaging"
+                            isCreating={isCreating}
+                            setIsCreating={setIsCreating}
+                            setCreateType={setCreateType}
+                            setIsEditing={setIsEditing}
                         />
                     )}
                     Preview={(PreviewProps) => (
                         <TeamChannelPreview
                             {...PreviewProps}
                             type="messaging"
+                            setIsCreating={setIsCreating}
+                            setIsEditing={setIsEditing}
                         />
                     )}
                 />
