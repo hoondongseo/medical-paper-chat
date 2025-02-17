@@ -281,7 +281,7 @@ body {
     margin-bottom: 10px;
 }
 
-.channel-empty__first . __user-name {
+.channel-empty__first .__user-name {
     color: var(--primary-color);
 }
 
